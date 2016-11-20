@@ -28,29 +28,20 @@ namespace BabySitterApp.Tests.Controllers
         }
 
         [TestMethod]
-        public void About()
+        public void StartsNoEarlierThan5PM()
         {
-            // Arrange
+            //Arrange
             HomeController controller = new HomeController();
 
-            // Act
-            ViewResult result = controller.About() as ViewResult;
+            //Act
+            bool result = controller.CheckTimeNotEarlierThan5PM();
 
-            // Assert
-            Assert.AreEqual("Your application description page.", result.ViewBag.Message);
+
+            //Assert
+            Assert.AreEqual(true, result);
+
         }
 
-        [TestMethod]
-        public void Contact()
-        {
-            // Arrange
-            HomeController controller = new HomeController();
-
-            // Act
-            ViewResult result = controller.Contact() as ViewResult;
-
-            // Assert
-            Assert.IsNotNull(result);
-        }
+    
     }
 }
